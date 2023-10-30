@@ -1,17 +1,14 @@
 import Styles from "./FeaturedBook.module.css"
-import lordTitle from "../../assets/images/lordTitle.png"
-import lordCover from "../../assets/images/lordCover.jpg"
-import witchKing from "../../assets/images/Witchking.webp"
-import harryCover from "../../assets/images/harryCover.webp"
-import harryTitle from "../../assets/images/harryTitle.png"
-import harryCharacter from "../../assets/images/harryCharacter.png"
 import {FeaturedBooks} from '../../assets/data/featuredData'
+
+
 const FeaturedBook =() =>{
 
         return (
             <div className={Styles.featured}>
          
-                     
+         <h2>Editors Choice</h2>
+
                      {FeaturedBooks.map(book =>{
 
                         return (
