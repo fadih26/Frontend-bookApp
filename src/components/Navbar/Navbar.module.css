@@ -30,7 +30,7 @@
     margin: 0;
     padding: 0;
     display: flex;
-    width: 150px;
+    width: 200px;
     align-items: center;
     justify-content: space-between;
     list-style: none;
@@ -118,7 +118,7 @@
 }
 
 .linksWrapperMobile.activeNav{
-    height: 100px;
+    height: 150px;
 }
 
 

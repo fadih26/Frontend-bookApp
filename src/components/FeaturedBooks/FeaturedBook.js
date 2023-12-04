@@ -9,16 +9,16 @@ const FeaturedBook =() =>{
          
          <h2>Editors Choice</h2>
 
-                     {FeaturedBooks.map(book =>{
+                     {FeaturedBooks.map((book,index) =>{
 
                         return (
-                            <a className={Styles.cardContainer} href="/" alt="Mythrill" target="_blank">
+                            <a key={index} className={Styles.cardContainer} href="/" alt="Mythrill" target="_blank">
                             <div className={Styles.card}>
                                 <div className={Styles.wrapper}>
-                                    <img src={book.coverImage} className={Styles.coverimage} />
+                                    <img src={book.coverImage} className={Styles.coverimage} alt="Character" />
                                 </div>
-                                <img src={book.titleImage} className={Styles.title} />
-                                <img src={book.characImage} className={Styles.character} />
+                                <img src={book.titleImage} className={Styles.title} alt="Character" />
+                                <img src={book.characImage} className={Styles.character} alt="Character" />
                             </div>
                         </a>
                         )
