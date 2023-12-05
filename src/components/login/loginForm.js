@@ -25,16 +25,18 @@ const LoginForm = () => {
 
 
         try {
-             await apiCall({
+              const  login =  await apiCall({
                 url: '/api/auth/login',
                 method: 'post',
                 data: { email, password }
-            }).then((res)=>{console.log(res)});
+            })
+         
             await fetchUserData()
             toast.success("Logged in Successfully!")
             setLoading(false);
             navigate('/')
-        } catch (error) {
+        }
+        catch (error) {
 
             console.log(error)
 
@@ -44,7 +46,7 @@ const LoginForm = () => {
 
 
     return (
-        <form className={Styles.loginForm} >
+        <form onSubmit={(e)=>submitHandler(e)} className={Styles.loginForm} >
             <h1 className={Styles.loginTitle}>Login</h1>
 
             <div className={Styles.inputWrapper}>
@@ -59,7 +61,7 @@ const LoginForm = () => {
                     className={Styles.formInput} name="password" placeholder='Password' />
             </div>
             {loading ? (<img src={Spinner} alt="loading" />) : (
-                <button onClick={(e) => submitHandler(e)} className={Styles.loginButton}>Login</button>
+                <button type='submit' className={Styles.loginButton}>Login</button>
 
             )}
         </form>

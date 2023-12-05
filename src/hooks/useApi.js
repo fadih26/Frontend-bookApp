@@ -18,9 +18,9 @@ const useApi = () => {
         } catch (error) {
             if (error.response) {
                 if (error.response.status === 401) {
-                    toast.error("Unauthorized")
+                    toast.error(error.response.data.message)
                     setUser(null); // Unauthorized: Token is invalid or expired
-                    navigate('/')
+                    navigate('/login')
 
                 } else if (error.response.status === 403) {
                     toast.error("Forbidden Access")

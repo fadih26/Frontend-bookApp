@@ -7,19 +7,20 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
-    const [checkUser, setCheckUser] = useState(true);
+    const [checkUser, setCheckUser] = useState(false);
 
-    useEffect(() => {
-        if(!user && user === null){
-        fetchUserData();
-        }
-       else{
-        console.log("loggedin")
-       }
-    },[user]);
+    // useEffect(() => {
+    //     if(!user && user === null){
+    //     fetchUserData();
+    //     }
+    //    else{
+    //     console.log("loggedin")
+    //    }
+    // },[user]);
 
     const fetchUserData = async () => {
         try {
+            setCheckUser(true)
             const response = await axiosInstance.get('/api/auth/user');
             setUser(response.data.user);
         } catch(err) {
@@ -31,16 +32,7 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const login = async (email, password) => {
-        try {
-            await axiosInstance.post('/api/auth/login', { email, password });
-            await fetchUserData(); // Fetch user data after successful login
-            // console.log(response.data)
-        } catch (error) {
-            // Handle login error (e.g., show a message)
-            console.error('Login failed:', error);
-        }
-    };
+
 
     const logout = async () => {
         await axiosInstance.post('/api/auth/logout');
@@ -48,7 +40,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ user,setUser,checkUser,fetchUserData,login, logout }}>
+        <AuthContext.Provider value={{ user,setUser,checkUser,fetchUserData, logout }}>
             {children}
         </AuthContext.Provider>
     );

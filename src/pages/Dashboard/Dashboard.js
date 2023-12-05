@@ -2,7 +2,7 @@ import Styles from './Dashboard.module.css'
 // import axios from 'axios';
 import { useState, useEffect,useRef } from 'react';
 import useApi from '../../hooks/useApi';
-
+import { Link } from 'react-router-dom';
 
 const Dashboard = () => {
 
@@ -40,7 +40,7 @@ const Dashboard = () => {
         setBooks(bookData);
       
       } catch (error) {
-        console.log(error);
+        console.log("something went wrong");
 
       } finally {
         setIsLoading(false)
@@ -50,7 +50,7 @@ const Dashboard = () => {
     };
 
     fetchBooks();
-  }, [apiCall]);
+  }, []);
 
   return (
     <main className={Styles.dashboardContainer} >
@@ -67,6 +67,20 @@ const Dashboard = () => {
           })
           : <p>Loading.....</p>}
       </section> */}
+
+<section className={Styles.booksContainer} >
+<Link to="/">Return Home</Link>
+
+{!isLoading && books ?
+  books.map((book, index) => {
+    return <div key={index}>
+     
+      <h4 >{book.title}</h4>
+    </div>
+
+  })
+  : <p>Loading.....</p>}
+</section>
     </main>
   )
 }

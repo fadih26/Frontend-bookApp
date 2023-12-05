@@ -45,8 +45,8 @@ const AddBook = () => {
             }
         };
 
-        fetchCategories();
-        fetchAuthors();
+        // fetchCategories();
+        // fetchAuthors();
     }, []);
 
     const handleChange = (event) => {

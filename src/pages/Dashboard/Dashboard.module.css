@@ -21,6 +21,21 @@
     display: flex;
 }
 
+.booksContainer a{
+    position: absolute;
+    top: 11%;
+    left: 20%;
+    padding: 10px 10px;
+    color: #000;
+    background-color: white;
+    transform: translate(-50%,-50%);
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+
+}
+
 
 
 .dashboardContainer a:hover{
